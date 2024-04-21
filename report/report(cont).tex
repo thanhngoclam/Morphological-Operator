@@ -1,0 +1,225 @@
+\documentclass{report}
+\usepackage{tikz}
+\usepackage[utf8]{vietnam}
+\usepackage[english]{babel}
+\usepackage{fancyhdr} 
+\usepackage{parskip}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath,amsxtra,amssymb,latexsym, amscd,amsthm}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{listings}
+\usepackage{multirow, tabularx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage[T5]{fontenc}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\DeclareFontShape{T5}{cmr}{bx}{sc}{<->ssub * cmr/bx/n}{}
+\usetikzlibrary{calc}
+\setcounter{secnumdepth}{5} 
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\large,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=7.5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1,
+  % font size is 12pt
+  basicstyle=\fontsize{12}{12}\selectfont
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+% ========================== TITLE PAGE =============================
+\begin{titlepage}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[line width = 4pt] ($(current page.north west) + (2cm,-2cm)$) rectangle ($(current page.south east) + (-2cm,1.7cm)$);
+\end{tikzpicture}
+
+\begin{center}
+% -------------------- Upper part of the page
+\textsc{\Large \textbf{VNUHCM - UNIVERSITY OF SCIENCE}}\\
+
+\bigskip
+
+\textsc{\Large FACULTY OF INFORMATION TECHNOLOGY}\\
+
+\bigskip
+
+% -------------------- University Logo
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=5.2cm, height=5.2cm]{logo.png}
+\end{figure}
+
+% -------------------- Title
+\HRule \\[0.4cm]
+{\huge\bfseries \textcolor{blue}{MORPHOLOGICAL OPERATOR (CONT.)}}\\[0.4cm]
+{\Large\bfseries ADVANCED DIGITAL IMAGE AND VIDEO PROCESSING}
+\HRule \\[1cm]
+
+% -------------------- Student name
+\begin{center}
+    \textbf{\Large Lâm Thanh Ngọc - 21127118} \\
+    \medskip
+    \Large{\textbf{Class: 21TGMT}}\\[4cm]
+\end{center}
+
+% -------------------- Advisor name
+\begin{center}
+    \textbf{\Large Lecturers: \\[0.2cm]}
+    \Large{Lý Quốc Ngọc \\[0.2cm] Phạm Minh Hoàng \\ [0.2cm] Nguyễn Mạnh Hùng}
+\end{center}
+\vfill
+
+% ------------------------ Bottom of the page
+
+{\today}
+\end{center}
+\end{titlepage}
+% ===================== END OF TITLE PAGE ==========================
+
+
+
+% ======================== HEADER AND FOOTER ======================
+\pagestyle{fancy}
+\setlength{\headheight}{0.5cm}
+\fancyhf{}
+\lhead{\textbf{Practice 01 cont.}}
+\rhead{\textbf{Advanced Digital Image and Video Processing}}
+\rfoot{Page \thepage}
+% ==================== END OF HEADER AND FOOTER =====================
+
+
+
+% ====================== TABLE OF CONTENTS ==========================
+\Large
+\tableofcontents
+\thispagestyle{fancy} % Fix footer and header
+\vfill
+\pagebreak
+% ===================== END OF TABLE OF CONTENTS ==================
+
+
+
+% =============== SECTION AND SUBSECTION NUMBERING ==================
+\renewcommand\thesection{\arabic{section}} % Section start from 1,2,3...
+\renewcommand\thesubsection{\thesection.\arabic{subsection}} % Subsection start from 1,2,3,...
+\renewcommand\thesubsubsection{\alph{subsection}} 
+% ============ END OF SECTION AND SUBSECTION NUMBERING ==============
+
+%============= CONTENT =============
+\section{Assessment}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-3}
+\multicolumn{1}{|c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Function}}} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Level of completion}}} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Assessment}}} &
+   \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Black-Hat} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Textual Segmentation} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for grayscale image} &
+  \\ \cline{1-3}
+\end{tabular}
+\centering
+\end{table}
+%==========================================
+
+%===========================================
+
+\section{Morphological operators function}
+The continue part of practice is implemented in the same file with the previous part, thus the supporting and some manual functions is keep unchanged. The new functions are implemented such as: \textbf{Black-Hat} and \textbf{Textual Segmentation} for grayscale images.
+
+\subsection{Black-Hat}
+The black-hat operator is defined as the difference between the closing of the input image and the input image. It is useful for detecting bright regions on a dark background.
+
+\textcolor{blue}{\lstinline|def black\_hat(img, kernel)|}
+\begin{itemize}
+    \item[] \textbf{Input:}
+    \begin{itemize}
+        \item \textbf{img}: input grayscale image.
+        \item \textbf{kernel}: kernel for morphological operation or known as structuring element.
+    \end{itemize}
+    \item[] \textbf{Output:} image after applying black-hat operator.
+\end{itemize}
+
+This function is used to manually perform the black-hat operator on the input grayscale image. The closing operation is performed on the input image and then the input image is subtracted from the result of the closing operation. The result is the black-hat transformed image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{results/blackhat.png}
+    \caption{Black-hat on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result image, the black-hat operator is able to detect the bright regions on a dark background and keep it where as the darker part is almose removed. This is useful for detecting the text from the background in the image processing. The manual implementation of black-hat operator also shows the effectiveness when the difference with the OpenCV function is not significant.
+
+\subsection{Textual Segmentation}
+Textual segmentation is a process of segmenting text from the background. The morphological gradient is used to segment the text from the background.
+
+\textcolor{blue}{\lstinline|def textual\_segmentation(img, kernel)|}
+\begin{itemize}
+    \item[] \textbf{Input:}
+    \begin{itemize}
+        \item \textbf{img}: input grayscale image.
+        \item \textbf{kernel}: kernel for morphological operation or known as structuring element.
+    \end{itemize}
+    \item[] \textbf{Output:} image after applying textual segmentation.
+\end{itemize}
+
+This function is used to manually perform the morphological textual segmentation on the input grayscale image. The opening is performed on the closing of the input image and then it is used in the morphological gradient operation. The result is the text segmented image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{results/segment.png}
+    \caption{Textual segmentation on grayscale image with kernel size 3x3}
+\end{figure}
+
+The result image shows the white line which segments the large and small circle from the input image into 2 separated parts. This is useful for detecting the text from the background in the image processing.
+
+\pagebreak
+\section{References}
+\begin{itemize}
+  \item[] Practice \#01 sample code published on moodle.
+  \item[] Slides of theory lecture provided by Prof. Lý Quốc Ngọc.
+  \item[] \href{https://www.mathworks.com/help/images/morphological-dilation-and-erosion.html}{Ideas of dilation and erosion operators}
+  \item[] \href{http://users.utcluj.ro/~rdanescu/PI-L7e.pdf}{Ideas of opening and closing operators}
+  \item[] \href{https://medium.com/@anshul16/dilation-morphological-operation-image-processing-82d16a619f59}{Implementation of morphological operators with opencv in both binary and grayscale images}
+  \item[] \href{https://medium.com/@sasasulakshi/opencv-morphological-dilation-and-erosion-fab65c29efb3}{Implementation of morphological operators with opencv}
+\end{itemize}
+
+\end{document}

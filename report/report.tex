@@ -1,0 +1,441 @@
+\documentclass{report}
+\usepackage{tikz}
+\usepackage[utf8]{vietnam}
+\usepackage[english]{babel}
+\usepackage{fancyhdr} 
+\usepackage{parskip}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsmath,amsxtra,amssymb,latexsym, amscd,amsthm}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{listings}
+\usepackage{multirow, tabularx}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{array}
+\usepackage[T5]{fontenc}
+\usepackage{colortbl}
+\usepackage{listings}
+\usepackage{hyperref}
+
+\DeclareFontShape{T5}{cmr}{bx}{sc}{<->ssub * cmr/bx/n}{}
+\usetikzlibrary{calc}
+\setcounter{secnumdepth}{5} 
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand\HRule{\rule{\textwidth}{1pt}}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\large,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=7.5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=1,
+  % font size is 12pt
+  basicstyle=\fontsize{12}{12}\selectfont
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+% ========================== TITLE PAGE =============================
+\begin{titlepage}
+
+\begin{tikzpicture}[remember picture, overlay]
+    \draw[line width = 4pt] ($(current page.north west) + (2cm,-2cm)$) rectangle ($(current page.south east) + (-2cm,1.7cm)$);
+\end{tikzpicture}
+
+\begin{center}
+% -------------------- Upper part of the page
+\textsc{\Large \textbf{VNUHCM - UNIVERSITY OF SCIENCE}}\\
+
+\bigskip
+
+\textsc{\Large FACULTY OF INFORMATION TECHNOLOGY}\\
+
+\bigskip
+
+% -------------------- University Logo
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=5.2cm, height=5.2cm]{logo.png}
+\end{figure}
+
+% -------------------- Title
+\HRule \\[0.4cm]
+{\huge\bfseries \textcolor{blue}{MORPHOLOGICAL OPERATOR}}\\[0.4cm]
+{\Large\bfseries ADVANCED DIGITAL IMAGE AND VIDEO PROCESSING}
+\HRule \\[1cm]
+
+% -------------------- Student name
+\begin{center}
+    \textbf{\Large Lâm Thanh Ngọc - 21127118} \\
+    \medskip
+    \Large{\textbf{Class: 21TGMT}}\\[4cm]
+\end{center}
+
+% -------------------- Advisor name
+\begin{center}
+    \textbf{\Large Lecturers: \\[0.2cm]}
+    \Large{Lý Quốc Ngọc \\[0.2cm] Phạm Minh Hoàng \\ [0.2cm] Nguyễn Mạnh Hùng}
+\end{center}
+\vfill
+
+% ------------------------ Bottom of the page
+
+{\today}
+\end{center}
+\end{titlepage}
+% ===================== END OF TITLE PAGE ==========================
+
+
+
+% ======================== HEADER AND FOOTER ======================
+\pagestyle{fancy}
+\setlength{\headheight}{0.5cm}
+\fancyhf{}
+\lhead{\textbf{Practice 01}}
+\rhead{\textbf{Advanced Digital Image and Video Processing}}
+\rfoot{Page \thepage}
+% ==================== END OF HEADER AND FOOTER =====================
+
+
+
+% ====================== TABLE OF CONTENTS ==========================
+\Large
+\tableofcontents
+\thispagestyle{fancy} % Fix footer and header
+\vfill
+\pagebreak
+% ===================== END OF TABLE OF CONTENTS ==================
+
+
+
+% =============== SECTION AND SUBSECTION NUMBERING ==================
+\renewcommand\thesection{\arabic{section}} % Section start from 1,2,3...
+\renewcommand\thesubsection{\thesection.\arabic{subsection}} % Subsection start from 1,2,3,...
+\renewcommand\thesubsubsection{\alph{subsection}} 
+% ============ END OF SECTION AND SUBSECTION NUMBERING ==============
+
+%============= CONTENT =============
+\section{Assessment}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lllll}
+\cline{1-3}
+\multicolumn{1}{|c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Function}}} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Level of completion}}} &
+  \multicolumn{1}{c|}{\cellcolor[HTML]{010066}{\color[HTML]{FFFFFF} \textbf{Assessment}}} &
+   \\ \cline{1-3}
+\multicolumn{1}{|l|}{Dilation} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for both binary and grayscale image} &
+   \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Erosion} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for both binary and grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Opening} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for both binary and grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Closing} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for both binary and grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Boundary Extraction} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for binary image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Morphological Gradient} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Top-Hat} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for grayscale image} &
+  \\ \cline{1-3}
+  \multicolumn{1}{|l|}{Smoothing} &
+  \multicolumn{1}{l|}{100\%} &
+  \multicolumn{1}{l|}{Completed for grayscale image} &
+  \\ \cline{1-3}
+\end{tabular}
+\centering
+\end{table}
+%==========================================
+
+%===========================================
+
+\section{Supporting functions}
+\subsection*{\textcolor{blue}{\lstinline|def pre_process(image_path)|} and \textcolor{blue}{\lstinline|def pre_process_gray(image_path)|}}
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|image_path|} is the path to the image.
+  \item[-] \textbf{Output:} The function returns the image in RGB and grayscale format.
+\end{itemize}
+
+Both functions are all used for reading the image and converting it to appropriate format (binary or grayscale). The function \textcolor{blue}{\lstinline|pre\_process|} is used for binary images with the function \textcolor{blue}{\lstinline|cv.imread(image\_path, 0)|} of opencv where 0 is the flag for reading the image in grayscale and the function \textcolor{blue}{\lstinline|cv.threshold(img, 128, 255, cv.THRESH\_BINARY | cv.THRESH\_OTSU)|} of opencv to convert the image into binary format.
+
+Similarly, the function \textcolor{blue}{\lstinline|pre_process_gray|} is used for reading a grayscale image with the function \textcolor{blue}{\lstinline|cv.imread(image_path)|} of opencv to read the image and converting it to grayscale format using the function \textcolor{blue}{\lstinline|cv.cvtColor(img, cv.COLOR_BGR2GRAY)|} of opencv.
+
+\subsection*{\textcolor{blue}{\lstinline|def print_img(imgs, row, col)|}}
+The function is used to display the array of images in a grid format. It takes the array of images, the number of rows and the number of columns as input, then uses the function \textcolor{blue}{\lstinline|plt.subplot(row, col, index\_of\_images)|} of matplotlib to display the images in a grid format.
+
+\pagebreak
+\section{Morphological operators functions}
+\subsection{Dilation}
+The dilation operator is used to expand the boundaries of the object in the image, so that the small holes in the object are filled with thicker boundaries to make the object more obvious. It comes up with the rule that the pixel value of the output image is the maximum pixel value of the input image under the kernel which means if any pixel value is overlapped by the kernel, the pixel value of the output image at the center of the kernel will be the maximum pixel value of the input image. This idea is implemented in the 2 following functions:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def dilation(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the dilated image.
+\end{itemize}
+
+This function is used to manually perform the dilation operation on the binary image. From the above idea, the function first creates a zero matrix with the same size as the input image and add zero padding to the input image. Then, it iterates through the input image and at each pixel, it checks if there is any pixel is overlapped by the kernel with \textcolor{blue}{\lstinline|np.any()|} of numpy. If it is, the pixel value of the output image at the center of the kernel will be the maximum pixel value of the input image under the kernel, in this case, it is 1. Finally, the function returns the dilated binary image.
+
+\subsubsection*{\textcolor{blue}{\lstinline|def dilation2(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the dilated image.
+\end{itemize}
+
+Similarly to the dilation function used for the binary image, this function is implemented with the same idea but the maximum pixel value of the input image under the kernel in this case is taken by \textcolor{blue}{\lstinline|np.max()|} function of numpy. The function returns the dilated grayscale image.
+
+\pagebreak
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/dilation1.png}
+    \caption{Dilation on binary image with kernel size 3x3}
+    \bigskip
+    \includegraphics[width=\textwidth]{results/dilation2.png}
+    \caption{Dilation on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the small holes in the object are filled with the maximum pixel value of the input image under the kernel and the filled shapes become larger. For comparision, the manual dilation operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.dilate(image, kernel)|}.
+
+\pagebreak
+\subsection{Erosion}
+The erosion operator is used to shrink the boundaries of the object in the image, so that the small holes in the object are removed to make the object more obvious. It comes up with the rule that the pixel value of the output image is the minimum pixel value of the input image under the kernel which means if any pixel value is overlapped by the kernel, the pixel value of the output image at the center of the kernel will be the minimum pixel value of the input image. This idea is implemented in the 2 following functions:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def erosion(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the eroded image.
+\end{itemize}
+
+This function is used to manually perform the erosion operation on the binary image. From the above idea, the function first creates a zero matrix with the same size as the input image and add zero padding to the input image. Then, it iterates through the input image and at each pixel, it checks if there is any pixel is overlapped by the kernel with \textcolor{blue}{\lstinline|np.all()|} of numpy. If it is, the pixel value of the output image at the center of the kernel will be the minimum pixel value of the input image under the kernel, in this case, it is 0. Finally, the function returns the eroded binary image.
+
+\subsubsection*{\textcolor{blue}{\lstinline|def erosion2(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the eroded image.
+\end{itemize}
+
+Similarly to the erosion function used for the binary image, this function is implemented with the same idea but the minimum pixel value of the input image under the kernel in this case is taken by \textcolor{blue}{\lstinline|np.min()|} function of numpy. The function returns the eroded grayscale image.
+
+\pagebreak
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/erosion1.png}
+    \caption{Erosion on binary image with kernel size 3x3}
+    \bigskip
+    \includegraphics[width=\textwidth]{results/erosion2.png}
+    \caption{Erosion on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the small holes in the object are removed and the object becomes smaller. For comparision, the manual erosion operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.erode(image, kernel)|}.
+
+\pagebreak
+\subsection{Opening}
+The opening operator is used to remove the small objects in the image and smooth the object boundaries. It is the combination of the erosion operator followed by the dilation operator. This idea is implemented in the 2 following functions:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def opening(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the opened image.
+\end{itemize}
+
+This function is used to manually perform the opening operation on the binary image. From the above idea, the function first performs the erosion operation on the input image with the function \textcolor{blue}{\lstinline|erosion(img, kernel)|} and then calls the dilation operation on the eroded image with the function \textcolor{blue}{\lstinline|dilation(img, kernel)|}. Finally, the function returns the opened binary image.
+
+\subsubsection*{\textcolor{blue}{\lstinline|def opening2(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the opened image.
+\end{itemize}
+
+Similarly to the opening function used for the binary image, this function is implemented with the same idea but the erosion and dilation operations are replaced by the functions \textcolor{blue}{\lstinline|erosion2(img, kernel)|} and \textcolor{blue}{\lstinline|dilation2(img, kernel)|}. The function returns the opened grayscale image.
+
+\pagebreak
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/opening1.png}
+    \caption{Opening on binary image with kernel size 3x3}
+    \bigskip
+    \includegraphics[width=\textwidth]{results/opening2.png}
+    \caption{Opening on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the small objects in the image are removed and the object boundaries are smoothed. For comparision, the manual opening operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_OPEN, kernel)|}.
+
+\pagebreak
+\subsection{Closing}
+The closing operator is used to remove the small holes in the object in the image and smooth the object boundaries. It is the combination of the dilation operator followed by the erosion operator. This idea is implemented in the 2 following functions:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def closing(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the closed image.
+\end{itemize}
+
+This function is used to manually perform the closing operation on the binary image. From the above idea, the function first performs the dilation operation on the input image with the function \textcolor{blue}{\lstinline|dilation(img, kernel)|} and then calls the erosion operation on the dilated image with the function \textcolor{blue}{\lstinline|erosion(img, kernel)|}. Finally, the function returns the closed binary image.
+
+\subsubsection*{\textcolor{blue}{\lstinline|def closing2(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the closed image.
+\end{itemize}
+
+Similarly to the closing function used for the binary image, this function is implemented with the same idea but the dilation and erosion operations are replaced by the functions \textcolor{blue}{\lstinline|dilation2(img, kernel)|} and \textcolor{blue}{\lstinline|erosion2(img, kernel)|}. The function returns the closed grayscale image.
+
+\pagebreak
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/closing1.png}
+    \caption{Closing on binary image with kernel size 3x3}
+    \bigskip
+    \includegraphics[width=\textwidth]{results/closing2.png}
+    \caption{Closing on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the small holes in the object in the image are removed and the object boundaries are smoothed. For comparision, the manual closing operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_CLOSE, kernel)|}.
+
+\pagebreak
+\subsection{Boundary Extraction}
+The boundary extraction operator is used to extract the boundaries of the object in the binary image. It is the difference between the dilation and the erosion of the input image. This idea is implemented in the following function:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def boundary_extraction(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in binary format and \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the boundary extracted image.
+\end{itemize}
+
+This function is used to manually perform the boundary extraction operation on the binary image. From the above idea, the function first performs the dilation operation on the input image with the function \textcolor{blue}{\lstinline|dilation(img, kernel)|} and the erosion operation on the input image with the function \textcolor{blue}{\lstinline|erosion(img, kernel)|}. Then, it finds the difference between the 2 functions and returns the boundary extracted binary image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/boundary.png}
+    \caption{Boundary extraction on binary image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the boundaries of the object in the image are extracted. For comparision, the manual boundary extraction operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_GRADIENT, kernel)|}.
+
+\pagebreak
+\subsection{Morphological Gradient}
+The morphological gradient operator is used to extract the boundaries of the object in the grayscale image. It is the difference between the dilation and the erosion of the input image. This idea is implemented in the following function:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def morphological_gradient(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in grayscale format, \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the morphological gradient image.
+\end{itemize}
+
+This function is used to manually perform the morphological gradient operation on the grayscale image. From the above idea, the function first performs the dilation operation on the input image with the function \textcolor{blue}{\lstinline|dilation2(img, kernel)|} and the erosion operation on the input image with the function \textcolor{blue}{\lstinline|erosion2(img, kernel)|}. Then, it finds the difference between the 2 functions and returns the morphological gradient grayscale image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/gradient.png}
+    \caption{Morphological gradient on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the boundaries of the object in the grayscale image are extracted. For comparision, the manual morphological gradient operator function seems showing the blurrer with less detail result than the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_GRADIENT, kernel)|}.
+
+\pagebreak
+\subsection{Top-Hat}
+The top-hat operator is used to extract the small objects in the grayscale image. It is the difference between the input image and the opening of the input image. This idea is implemented in the following function:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def top_hat(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in grayscale format, \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the top-hat image.
+\end{itemize}
+
+This function is used to manually perform the top-hat operation on the grayscale image. From the above idea, the function first performs the opening operation on the input image with the function \textcolor{blue}{\lstinline|opening2(img, kernel)|}. Then, it finds the difference between the input image and the opened image and returns the top-hat grayscale image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/tophat.png}
+    \caption{Top-hat on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the small objects in the grayscale image are extracted. For comparision, the manual top-hat operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_TOPHAT, kernel)|}.
+
+\pagebreak
+\subsection{Smoothing}
+The smoothing operator is used to remove the noise in the grayscale image. It is the combination of the opening and the closing of the input image. This idea is implemented in the following function:
+
+\subsubsection*{\textcolor{blue}{\lstinline|def smooth(img, kernel)|}}
+
+\begin{itemize}
+  \item[-] \textbf{Input:} \textcolor{blue}{\lstinline|img|} is the image in grayscale format, \textcolor{blue}{\lstinline|kernel|} is the structuring element.
+  \item[-] \textbf{Output:} The function returns the smoothed image.
+\end{itemize}
+
+This function is used to manually perform the smoothing operation on the grayscale image. From the above idea, the function first performs the opening operation on the input image with the function \textcolor{blue}{\lstinline|opening2(img, kernel)|} and then calls the closing operation on the opened image with the function \textcolor{blue}{\lstinline|closing2(img, kernel)|}. Finally, the function returns the smoothed grayscale image.
+
+\textbf{Result images:}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{results/smooth.png}
+    \caption{Smoothing on grayscale image with kernel size 3x3}
+\end{figure}
+
+As it can be seen from the result images, the noise in the grayscale image is removed. For comparision, the manual smoothing operator function does not show much differences from the built-in function of opencv \textcolor{blue}{\lstinline|cv.morphologyEx(image, cv.MORPH_CLOSE, kernel)|}.
+
+\pagebreak
+\section{References}
+\begin{itemize}
+  \item[] Practice \#01 sample code published on moodle.
+  \item[] Slides of theory lecture provided by Prof. Lý Quốc Ngọc.
+  \item[] \href{https://www.mathworks.com/help/images/morphological-dilation-and-erosion.html}{Ideas of dilation and erosion operators}
+  \item[] \href{http://users.utcluj.ro/~rdanescu/PI-L7e.pdf}{Ideas of opening and closing operators}
+  \item[] \href{https://medium.com/@anshul16/dilation-morphological-operation-image-processing-82d16a619f59}{Implementation of morphological operators with opencv in both binary and grayscale images}
+  \item[] \href{https://medium.com/@sasasulakshi/opencv-morphological-dilation-and-erosion-fab65c29efb3}{Implementation of morphological operators with opencv}
+\end{itemize}
+
+\end{document}
