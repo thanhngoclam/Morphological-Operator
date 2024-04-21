@@ -1,1 +1,1 @@
-# Morphological-Operator
+# Morphological Operator
